@@ -5,7 +5,7 @@ import Image from "next/image"
 export default function AboutComponent() {
   return (
     <>
-      <Avatar src="john.png" sx={{ width: 200, height: 200, float: 'left', margin: 4 }} />
+      <Avatar src="john.png" sx={{ width: { sm: 100, md: 200 }, height: { sm: 100, md: 200 }, float: 'left', margin: 4 }} />
       <Typography variant="h4">John Lazaro</Typography>
       <Typography variant="body1" component="p" textAlign="justify" className='p-2'>
         I started off as a student in electronics engineering with the interest of developing

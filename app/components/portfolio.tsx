@@ -75,19 +75,6 @@ export default function PortfolioContentComponent() {
       opacity: 0
     })
 
-    gsap.to('.foxy', {
-      scrollTrigger: {
-        trigger: '#tech',
-        start: 'top top',
-        end: '+=100%',
-        scrub: true
-      },
-      scale: 110,
-      opacity: 0,
-      z: 300,
-      display: 'block'
-    })
-
     gsap.to('.contact', {
       scrollTrigger: {
         trigger: '#contact',

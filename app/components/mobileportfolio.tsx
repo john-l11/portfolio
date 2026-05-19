@@ -5,10 +5,6 @@ import ContactForm from "./contactform"
 import ExperienceComponent from "./experience"
 import LanguageComponent from "./language"
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward"
-import gsap from "gsap"
-import ScrollTrigger from "gsap/ScrollTrigger"
-
-gsap.registerPlugin(ScrollTrigger)
 
 export default function MobilePortfolioContentComponent() {
   const theme = useTheme()

@@ -5,6 +5,7 @@ import { useState } from "react"
 import IntroAnimation from "./components/Intro"
 import PortfolioContentComponent from "./components/portfolio"
 import NavBarComponent from "./components/navbar"
+import MobilePortfolioContentComponent from "./components/mobileportfolio"
 
 /**
  * This is the about page where it displays all of my information
@@ -22,6 +23,7 @@ export default function AboutMePage() {
         <>
           <NavBarComponent />
           <PortfolioContentComponent />
+          <MobilePortfolioContentComponent />
         </>
       )}
     </>

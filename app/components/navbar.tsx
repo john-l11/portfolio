@@ -47,7 +47,7 @@ export default function ScrollSpyTabs() {
         <Tab label="Projects" href='#projects' />
       </Tabs>
 
-      <Box sx={{ ml: '150px' }}>
+      <Box sx={{ ml: '150px' }} className="hidden md:block">
         <div id='about' className="section" style={{ height: '150vh' }}></div>
         <div id='experience' className="section" style={{ height: '150vh' }}></div>
         <div id='tech' className="section" style={{ height: '150vh' }}></div>
