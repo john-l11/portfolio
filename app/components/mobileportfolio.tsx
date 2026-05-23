@@ -29,7 +29,7 @@ export default function MobilePortfolioContentComponent() {
   }))
 
   return (
-    <div className='block fade-in max-w-screen sm:p-20 font-(family-name:--font-geist-sans) overflow-x-clip md:hidden'>
+    <div className='fade-in max-w-screen sm:p-20 font-(family-name:--font-geist-sans) overflow-x-clip'>
       <span className='fixed bg-gray-500 min-w-screen h-1 left-0 top-0 z-5000'></span>
       <span className='scrollbar fixed bg-purple-500 min-w-screen h-1 -left-full top-0 z-5000'></span>
       {/* <div className='about radial-bg fixed top-0 left-0 md:pl-70 h-screen min-w-screen bg-radial-[at_25%_25%] from-gray-500 via-gray-700 to-gray-950  bg-gray-700 md:p-10 z-500 sm:p-0 sm:pl-0'> */}

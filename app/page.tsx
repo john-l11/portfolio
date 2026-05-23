@@ -1,11 +1,23 @@
 'use client'
 
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import IntroAnimation from "./components/Intro"
 import PortfolioContentComponent from "./components/portfolio"
 import NavBarComponent from "./components/navbar"
 import MobilePortfolioContentComponent from "./components/mobileportfolio"
+
+function useWindowSize() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowWidth;
+}
 
 /**
  * This is the about page where it displays all of my information
@@ -13,6 +25,7 @@ import MobilePortfolioContentComponent from "./components/mobileportfolio"
  */
 export default function AboutMePage() {
   const [showIntro, setShowIntro] = useState(true)
+  const width = useWindowSize()
 
   return (
     <>
@@ -22,8 +35,7 @@ export default function AboutMePage() {
       }} /> : (
         <>
           <NavBarComponent />
-          <PortfolioContentComponent />
-          <MobilePortfolioContentComponent />
+          {width > 768 ? <PortfolioContentComponent /> : <MobilePortfolioContentComponent />}
         </>
       )}
     </>

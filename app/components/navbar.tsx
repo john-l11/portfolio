@@ -37,7 +37,7 @@ export default function ScrollSpyTabs() {
         value={activeTab}
         onChange={(e, newValue) => setActiveTab(newValue)}
         sx={{ borderRight: 1, borderColor: 'divider', position: 'fixed', zIndex: 3000 }}
-        className='bg-[#8374748b] h-screen'
+        className='bg-[#8374748b] lg:h-screen w-3'
         variant='scrollable'
       >
         <Tab label="John Lazaro" href='#about' />
