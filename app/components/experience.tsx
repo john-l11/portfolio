@@ -6,19 +6,25 @@ export default function ExperienceComponent() {
       position: 'Cashier/Customer Service',
       company: 'Canadian Tire',
       years: '2022 - 2023',
-      description: [
-        'Worked with a team to make sure all information is relayed',
-        'Controlled the flow of cashiers breaks while on customer service desk'
-      ]
+      description: []
     },
     {
       position: 'Team Member',
-      company: 'Fun Factory',
+      company: 'The Fun Factory',
       years: '2023 - 2025',
-      description: [
-        'Operated web based point of sales systems',
-        'Utilized card systems application which ran on oracle SQL'
-      ]
+      description: []
+    },
+    {
+      position: 'Crew Member',
+      company: 'McDonalds',
+      years: '2026 - present',
+      description: []
+    },
+    {
+      position: 'Back house/Front Desk',
+      company: 'Motel6',
+      years: '2026 - Present',
+      description: []
     }
   ]
 
