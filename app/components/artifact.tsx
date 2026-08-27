@@ -22,11 +22,11 @@ export default function Artifact({ title, stack, image, children }: props) {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 100 }}
     >
-      <Card className="m-5">
+      <Card className="m-5" sx={{ background: 'var(--paper)', border: '1px solid var(--line)', boxShadow: 'none', borderRadius: 0 }}>
         <CardContent>
-          <Image width={800} height={800} alt="" src={image as string} className="p-3 float-left" />
-          <Typography variant='h6' component="h6">{title}</Typography>
-          <Typography variant='caption' component='p' color='gray'>Tech Stack: {stack}</Typography>
+          <Image width={800} height={420} alt="" src={image as string} className="w-full h-48 object-cover mb-5" />
+          <Typography variant='h6' component="h6" sx={{ fontWeight: 800 }}>{title}</Typography>
+          <Typography variant='caption' component='p' sx={{ color: 'var(--accent)', my: 1 }}>Tech stack: {stack}</Typography>
           <Divider />
           <Typography variant='body1' component='p'>
             {children}

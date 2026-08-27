@@ -4,6 +4,7 @@ import { Tabs, Tab, Box, useMediaQuery, useTheme } from '@mui/material'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
+import IconComponent from './brandmark'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -19,7 +20,7 @@ export default function ScrollSpyTabs() {
       className='bg-[#8374748b] w-4/5 rounded-3xl mx-auto my-5 block'
       variant='scrollable'
     >
-      <Tab label="John Lazaro" href='/' />
+      <a href="/"><IconComponent /></a>
       <Tab label="Experience" href='#experience' />
       <Tab label="Tools and Technology" href='#tech' />
       <Tab label="Contact Me" href='#contact' />
