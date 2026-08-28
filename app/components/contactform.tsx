@@ -13,6 +13,27 @@ import { useState } from 'react'
 export default function ContactForm() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [status, setStatus] = useState('')
+  const fieldStyles = {
+    '& .MuiInputBase-input': {
+      color: '#18202b',
+    },
+    '& .MuiInputLabel-root': {
+      color: '#647080',
+    },
+    '& .MuiInputLabel-root.Mui-focused': {
+      color: '#d94332',
+    },
+    '& .MuiOutlinedInput-notchedOutline': {
+      borderColor: '#9b927f',
+    },
+    '&:hover .MuiOutlinedInput-notchedOutline': {
+      borderColor: '#d94332',
+    },
+    '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+      borderColor: '#d94332',
+      borderWidth: 2,
+    },
+  }
 
   /**
    * This function is the change handler in the form
@@ -64,6 +85,7 @@ export default function ContactForm() {
         value={formData.name}
         onChange={handleChange}
         name='name'
+        sx={fieldStyles}
         required
       />
       <TextField
@@ -74,6 +96,7 @@ export default function ContactForm() {
         value={formData.email}
         onChange={handleChange}
         name='email'
+        sx={fieldStyles}
         required
       />
       <TextField
@@ -87,6 +110,7 @@ export default function ContactForm() {
         value={formData.message}
         onChange={handleChange}
         name='message'
+        sx={fieldStyles}
         required
       />
       <Button

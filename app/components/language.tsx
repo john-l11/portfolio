@@ -21,7 +21,7 @@ interface props {
 export default function LanguageComponent({ languages, header }: props) {
   return (
     <div className='persona-card'>
-      <Typography variant='h6' sx={{ fontWeight: 800, mb: 2 }}>{header}</Typography>
+      <Typography className="text-blue-950" variant='h6' sx={{ fontWeight: 800, mb: 2 }}>{header}</Typography>
       <div className='flex flex-wrap gap-1'>
         {languages.map((tech) =>
           <span className='persona-tag' key={tech}>{tech}</span>

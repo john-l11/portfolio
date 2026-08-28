@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material";
+import Nav from "./navbar";
 
 export default function ExperienceComponent() {
   const experience = [
@@ -21,23 +22,25 @@ export default function ExperienceComponent() {
       description: []
     },
     {
-      position: 'Back house/Front Desk',
+      position: 'Front Desk',
       company: 'Motel6',
       years: '2026 - Present',
       description: []
     }
   ]
 
-  return <div className="grid gap-3">
-    {experience.map((exp, index) => (
-      <article className="persona-card grid grid-cols-[48px_1fr_auto] gap-4 items-start" key={exp.company}>
-        <Typography sx={{ color: 'var(--accent)', fontWeight: 800 }}>0{index + 1}</Typography>
-        <div>
-          <Typography variant="h6" sx={{ fontWeight: 800 }}>{exp.position}</Typography>
-          <Typography sx={{ color: 'var(--muted)' }}>{exp.company}</Typography>
-        </div>
-        <Typography variant="body2" sx={{ color: 'var(--muted)', textAlign: 'right' }}>{exp.years}</Typography>
-      </article>
-    ))}
-  </div>
+  return (
+    <div className="grid gap-3">
+      {experience.map((exp, index) => (
+        <article className="persona-card grid grid-cols-[48px_1fr_auto] gap-4 items-start" key={exp.company}>
+          <Typography sx={{ color: 'var(--accent)', fontWeight: 800 }}>0{index + 1}</Typography>
+          <div>
+            <Typography className="text-blue-950" variant="h6" sx={{ fontWeight: 800 }}>{exp.position}</Typography>
+            <Typography sx={{ color: 'var(--muted)' }}>{exp.company}</Typography>
+          </div>
+          <Typography variant="body2" sx={{ color: 'var(--muted)', textAlign: 'right' }}>{exp.years}</Typography>
+        </article>
+      ))}
+    </div>
+  )
 }

@@ -24,7 +24,7 @@ export default function AboutComponent() {
         <Phone /> Phone Number: (306) 850-8737
       </Typography>
       <Link href={process.env.NEXT_PUBLIC_GITHUB || 'https://github.com'} target="_blank" rel="noreferrer" underline="hover">
-        <Image height={24} width={24} alt='GitHub' src='/github.png' /> View GitHub profile
+        <Image height={24} width={24} alt='GitHub' src='/github.png' />
       </Link>
     </Stack>
   )
