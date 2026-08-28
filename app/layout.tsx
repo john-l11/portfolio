@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import React from "react";
 import { Providers } from './components/provider';
+import Nav from "./components/navbar";
 
 
 
@@ -17,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "John's Portfolio",
-  description: "Portfolio about John Lazaro",
+  title: "John Lazaro / Persona",
+  description: "A persona portfolio for John Lazaro, full-stack developer.",
 };
 
 /**
@@ -34,7 +35,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Providers>{children}</Providers>
+        <div className="persona-shell">
+          <div className="persona-grid">
+            <Nav />
+            <Providers>
+              <main className="persona-main">
+                {children}
+              </main>
+            </Providers>
+          </div>
+        </div>
       </body>
     </html>
   );

@@ -1,4 +1,5 @@
-import { Typography, Container, List, ListItemText } from "@mui/material";
+import { Typography } from "@mui/material";
+import Nav from "./navbar";
 
 export default function ExperienceComponent() {
   const experience = [
@@ -6,41 +7,40 @@ export default function ExperienceComponent() {
       position: 'Cashier/Customer Service',
       company: 'Canadian Tire',
       years: '2022 - 2023',
-      description: [
-        'Worked with a team to make sure all information is relayed',
-        'Controlled the flow of cashiers breaks while on customer service desk'
-      ]
+      description: []
     },
     {
       position: 'Team Member',
-      company: 'Fun Factory',
+      company: 'The Fun Factory',
       years: '2023 - 2025',
-      description: [
-        'Operated web based point of sales systems',
-        'Utilized card systems application which ran on oracle SQL'
-      ]
+      description: []
+    },
+    {
+      position: 'Crew Member',
+      company: 'McDonalds',
+      years: '2026 - present',
+      description: []
+    },
+    {
+      position: 'Front Desk',
+      company: 'Motel6',
+      years: '2026 - Present',
+      description: []
     }
   ]
 
   return (
-    <>
-      <Typography variant="h6">Experience</Typography>
-      <Container className='flex flex-row'>
-        {experience.map((exp) => (
-          <Container key={exp.company} sx={{ padding: 2 }}>
-            <Typography variant="caption">{exp.position}</Typography>
-            <Typography variant="subtitle1">{exp.company}</Typography>
-            <Typography variant="subtitle1">{exp.years}</Typography>
-            <List>
-              {exp.description.map((desc) =>
-                <ListItemText key={desc}>&bull; {desc}</ListItemText>
-              )}
-            </List>
-          </Container>
-
-        ))}
-      </Container>
-    </>
-
+    <div className="grid gap-3">
+      {experience.map((exp, index) => (
+        <article className="persona-card grid grid-cols-[48px_1fr_auto] gap-4 items-start" key={exp.company}>
+          <Typography sx={{ color: 'var(--accent)', fontWeight: 800 }}>0{index + 1}</Typography>
+          <div>
+            <Typography className="text-blue-950" variant="h6" sx={{ fontWeight: 800 }}>{exp.position}</Typography>
+            <Typography sx={{ color: 'var(--muted)' }}>{exp.company}</Typography>
+          </div>
+          <Typography variant="body2" sx={{ color: 'var(--muted)', textAlign: 'right' }}>{exp.years}</Typography>
+        </article>
+      ))}
+    </div>
   )
 }
