@@ -214,9 +214,12 @@ a {
   }
 
   .persona-rail nav {
-    display: block;
     position: fixed;
     margin-top: 35px;
+  }
+
+  .mobile-menu {
+    display: block;
   }
 
   .persona-main {
