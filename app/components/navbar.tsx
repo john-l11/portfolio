@@ -20,7 +20,7 @@ export default function Nav() {
           <button className="bg-amber-100 text-blue-950 p-3 font-bold hover:bg-red-500" onClick={() => setMenu(true)}>[MENU]</button>
         </nav>
       </div>
-      <nav aria-label="Primary navigation" className="mobile-menu md:hidden gap-3 fixed right-10 z-10">
+      <nav aria-label="Primary navigation" className="mobile-menu hidden gap-3 fixed right-10 z-10">
         <button className="bg-amber-100 text-blue-950 p-3 font-bold hover:bg-red-500" onClick={() => setMenu(true)}>[MENU]</button>
       </nav>
     </>
