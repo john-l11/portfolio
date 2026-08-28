@@ -1,6 +1,5 @@
 'use client'
 
-import { Typography } from "@mui/material"
 import AboutComponent from "./components/about"
 import ContactForm from "./components/contactform"
 

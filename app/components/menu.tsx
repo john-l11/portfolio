@@ -1,8 +1,9 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 'use client';
 
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DimensionalRift from './rift';
 
 const menuItems = [
@@ -33,6 +34,9 @@ const itemVariants: Variants = {
 
 export default function MetaphorMenu({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  useEffect(() => {
+    setHoveredItem(null);
+  }, [isOpen]);
 
   return (
     <AnimatePresence>
@@ -43,11 +47,15 @@ export default function MetaphorMenu({ isOpen, onClose }: { isOpen: boolean; onC
           animate="visible"
           exit="exit"
           variants={containerVariants}
+          onClick={onClose}
         >
           {/* Rough grungy backdrop element */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,var(--tw-gradient-stops))] from-red-900/40 via-black to-black pointer-events-none" />
 
-          <div className="relative z-10 pl-16 md:pl-32 flex flex-col space-y-4 w-full max-w-2xl">
+          <div
+            className="relative z-10 pl-16 md:pl-32 flex flex-col space-y-4 w-full max-w-2xl"
+            onClick={(e) => { e.stopPropagation() }}
+          >
             <div className="text-red-600 text-xs tracking-widest uppercase mb-2 font-mono">-- Command Matrix --</div>
 
             {menuItems.map((item, idx) => (
@@ -56,6 +64,7 @@ export default function MetaphorMenu({ isOpen, onClose }: { isOpen: boolean; onC
                 variants={itemVariants}
                 onHoverStart={() => setHoveredItem(item.label)}
                 onHoverEnd={() => setHoveredItem(null)}
+                onSelect={() => setHoveredItem(null)}
                 className="relative overflow-visible"
               >
                 <Link
