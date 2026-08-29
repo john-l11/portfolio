@@ -67,8 +67,8 @@ export default function DimensionalRift({ isActive }: { isActive: boolean }) {
       {/* OUTER DIMENSIONAL GLOW */}
       <path
         d="
-          M 0 35 L 54 43 L 96 37 L 141 48 L 189 39 L 243 47 L 300 38
-          M 0 65 L 51 55 L 96 62 L 144 51 L 192 61 L 246 53 L 300 62
+          M 0 8 L 54 20 L 96 11 L 141 28 L 189 14 L 243 26 L 300 13
+          M 0 92 L 51 78 L 96 88 L 144 72 L 192 86 L 246 75 L 300 88
         "
         fill="none"
         stroke="#ff003c"
@@ -77,11 +77,11 @@ export default function DimensionalRift({ isActive }: { isActive: boolean }) {
         filter="url(#riftGlow)"
       />
 
-      {/* THE ACTUAL RIFT (horizontal) */}
+      {/* THE ACTUAL RIFT (horizontal, taller) */}
       <path
         d="
-          M 0 35 L 54 43 L 96 37 L 141 48 L 189 39 L 243 47 L 300 38
-          L 300 62 L 246 53 L 192 61 L 144 51 L 96 62 L 51 55 L 0 65
+          M 0 8 L 54 20 L 96 11 L 141 28 L 189 14 L 243 26 L 300 13
+          L 300 88 L 246 75 L 192 86 L 144 72 L 96 88 L 51 78 L 0 92
           Z
         "
         fill="url(#riftVoid)"
@@ -89,7 +89,7 @@ export default function DimensionalRift({ isActive }: { isActive: boolean }) {
 
       {/* RED EDGE ON TOP */}
       <path
-        d="M 0 35 L 54 43 L 96 37 L 141 48 L 189 39 L 243 47 L 300 38"
+        d="M 0 8 L 54 20 L 96 11 L 141 28 L 189 14 L 243 26 L 300 13"
         fill="none"
         stroke="#ff003c"
         strokeWidth="2"
@@ -97,7 +97,7 @@ export default function DimensionalRift({ isActive }: { isActive: boolean }) {
 
       {/* RED EDGE ON BOTTOM */}
       <path
-        d="M 0 65 L 51 55 L 96 62 L 144 51 L 192 61 L 246 53 L 300 62"
+        d="M 0 92 L 51 78 L 96 88 L 144 72 L 192 86 L 246 75 L 300 88"
         fill="none"
         stroke="#ff003c"
         strokeWidth="2"
@@ -105,33 +105,33 @@ export default function DimensionalRift({ isActive }: { isActive: boolean }) {
 
       {/* ENERGY STREAKS */}
       <g stroke="#ff174f" strokeLinecap="round" opacity="0.8">
-        <path d="M 20 32 L 8 12" strokeWidth="1" />
-        <path d="M 65 40 L 50 18" strokeWidth="0.7" />
-        <path d="M 110 34 L 92 8" strokeWidth="1.2" />
-        <path d="M 160 41 L 148 15" strokeWidth="1" />
-        <path d="M 205 38 L 220 10" strokeWidth="0.8" />
-        <path d="M 255 41 L 272 15" strokeWidth="1.3" />
+        <path d="M 20 10 L 8 -10" strokeWidth="1" />
+        <path d="M 65 22 L 50 0" strokeWidth="0.7" />
+        <path d="M 110 13 L 92 -15" strokeWidth="1.2" />
+        <path d="M 160 27 L 148 3" strokeWidth="1" />
+        <path d="M 205 15 L 220 -12" strokeWidth="0.8" />
+        <path d="M 255 25 L 272 0" strokeWidth="1.3" />
 
-        <path d="M 40 60 L 25 90" strokeWidth="0.8" />
-        <path d="M 95 63 L 78 95" strokeWidth="1" />
-        <path d="M 145 55 L 128 88" strokeWidth="0.6" />
-        <path d="M 195 60 L 212 92" strokeWidth="0.8" />
-        <path d="M 245 55 L 262 88" strokeWidth="1" />
+        <path d="M 40 90 L 25 115" strokeWidth="0.8" />
+        <path d="M 95 80 L 78 108" strokeWidth="1" />
+        <path d="M 145 88 L 128 118" strokeWidth="0.6" />
+        <path d="M 195 73 L 212 100" strokeWidth="0.8" />
+        <path d="M 245 86 L 262 115" strokeWidth="1" />
       </g>
 
       {/* FLOATING DIMENSION FRAGMENTS */}
       <g fill="#ff003c">
-        <rect x="28" y="27" width="3" height="2" transform="rotate(-25 28 27)" />
-        <rect x="78" y="30" width="4" height="2" transform="rotate(20 78 30)" />
-        <rect x="118" y="20" width="2" height="4" transform="rotate(35 118 20)" />
-        <rect x="170" y="24" width="3" height="3" transform="rotate(-30 170 24)" />
+        <rect x="28" y="5" width="3" height="2" transform="rotate(-25 28 5)" />
+        <rect x="78" y="8" width="4" height="2" transform="rotate(20 78 8)" />
+        <rect x="118" y="-2" width="2" height="4" transform="rotate(35 118 -2)" />
+        <rect x="170" y="2" width="3" height="3" transform="rotate(-30 170 2)" />
 
-        <rect x="55" y="72" width="3" height="2" transform="rotate(15 55 72)" />
-        <rect x="130" y="78" width="4" height="2" transform="rotate(-18 130 78)" />
-        <rect x="220" y="70" width="2" height="4" transform="rotate(28 220 70)" />
+        <rect x="55" y="95" width="3" height="2" transform="rotate(15 55 95)" />
+        <rect x="130" y="100" width="4" height="2" transform="rotate(-18 130 100)" />
+        <rect x="220" y="93" width="2" height="4" transform="rotate(28 220 93)" />
 
-        <circle cx="185" cy="22" r="1.2" />
-        <circle cx="265" cy="75" r="1" />
+        <circle cx="185" cy="-4" r="1.2" />
+        <circle cx="265" cy="98" r="1" />
       </g>
     </motion.svg>
   );

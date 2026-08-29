@@ -54,7 +54,7 @@ export default function MetaphorMenu({ isOpen, onClose }: { isOpen: boolean; onC
 
           <div
             className="relative z-10 pl-16 md:pl-32 flex flex-col space-y-4 w-full max-w-2xl"
-            onClick={(e) => { e.stopPropagation() }}
+            onClick={(e) => e.stopPropagation()}
           >
             <div className="text-red-600 text-xs tracking-widest uppercase mb-2 font-mono">-- Command Matrix --</div>
 
@@ -64,7 +64,6 @@ export default function MetaphorMenu({ isOpen, onClose }: { isOpen: boolean; onC
                 variants={itemVariants}
                 onHoverStart={() => setHoveredItem(item.label)}
                 onHoverEnd={() => setHoveredItem(null)}
-                onSelect={() => setHoveredItem(null)}
                 className="relative overflow-visible"
               >
                 <Link
@@ -72,12 +71,14 @@ export default function MetaphorMenu({ isOpen, onClose }: { isOpen: boolean; onC
                   onClick={onClose}
                   className="group relative flex items-baseline space-x-6 py-2"
                 >
-                  <DimensionalRift isActive={hoveredItem === item.label} />
                   <span className="text-sm font-mono text-neutral-500 group-hover:text-red-500 transition-colors">
                     0{idx + 1}
                   </span>
-                  <span className="relative z-10 text-4xl md:text-6xl font-black text-neutral-100 tracking-tighter group-hover:italic group-hover:text-red-500 transition-all duration-200">
-                    {item.label}
+                  <span className="relative inline-block px-5 py-3">
+                    <DimensionalRift isActive={hoveredItem === item.label} />
+                    <span className="relative z-10 text-4xl md:text-6xl font-black text-neutral-100 tracking-tighter group-hover:italic group-hover:text-red-500 transition-all duration-200">
+                      {item.label}
+                    </span>
                   </span>
                   <span className="relative z-10 hidden md:inline-block text-xs font-mono text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity translate-x-2">
                     // {item.desc}
