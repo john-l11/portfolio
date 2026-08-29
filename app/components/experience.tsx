@@ -1,5 +1,4 @@
 import { Typography } from "@mui/material";
-import Nav from "./navbar";
 
 export default function ExperienceComponent() {
   const experience = [
@@ -23,7 +22,7 @@ export default function ExperienceComponent() {
     },
     {
       position: 'Front Desk',
-      company: 'Motel6',
+      company: 'Motel 6',
       years: '2026 - Present',
       description: []
     }

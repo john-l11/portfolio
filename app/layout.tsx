@@ -5,8 +5,6 @@ import React from "react";
 import { Providers } from './components/provider';
 import Nav from "./components/navbar";
 
-
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
