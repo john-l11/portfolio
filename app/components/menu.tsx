@@ -5,7 +5,6 @@ import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import Triangle from './triangle';
 import WaterBackdrop from './backdrop';
-import { useTransitionNav } from '../lib/transition-context';
 
 const menuItems = [
   { label: 'BACKSTORY', href: '/', desc: 'About me' },
@@ -34,16 +33,10 @@ const itemVariants: Variants = {
 };
 
 export default function MetaphorMenu({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
-  const { navigateWithTransition } = useTransitionNav();
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   useEffect(() => {
     setHoveredItem(null);
   }, [isOpen]);
-
-  function handleSelect(href: string) {
-    onClose();
-    navigateWithTransition(href);
-  }
 
   return (
     <AnimatePresence>
@@ -77,8 +70,8 @@ export default function MetaphorMenu({ isOpen, onClose }: { isOpen: boolean; onC
                 <div
                   role="link"
                   tabIndex={0}
-                  onClick={() => handleSelect(item.href)}
-                  onKeyDown={(e) => e.key === 'Enter' && handleSelect(item.href)}
+                  onClick={onClose}
+                  onKeyDown={(e) => e.key === 'Enter'}
                   className="group relative flex items-baseline space-x-6 py-2"
                 >
                   <span className="text-sm font-mono text-neutral-500 group-hover:text-white transition-colors">
