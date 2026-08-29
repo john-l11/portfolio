@@ -5,6 +5,7 @@ import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import Triangle from './triangle';
 import WaterBackdrop from './backdrop';
+import Link from 'next/link';
 
 const menuItems = [
   { label: 'BACKSTORY', href: '/', desc: 'About me' },
@@ -67,8 +68,8 @@ export default function MetaphorMenu({ isOpen, onClose }: { isOpen: boolean; onC
                 onHoverEnd={() => setHoveredItem(null)}
                 className="relative overflow-visible"
               >
-                <div
-                  role="link"
+                <Link
+                  href={item.href}
                   tabIndex={0}
                   onClick={onClose}
                   onKeyDown={(e) => e.key === 'Enter'}
@@ -86,7 +87,7 @@ export default function MetaphorMenu({ isOpen, onClose }: { isOpen: boolean; onC
                   <span className="relative z-10 hidden md:inline-block text-xs font-mono text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity translate-x-2">
                     // {item.desc}
                   </span>
-                </div>
+                </Link>
               </motion.div>
             ))}
 
