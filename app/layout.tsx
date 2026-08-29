@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import React from "react";
-import { Providers } from './components/provider';
 import Nav from "./components/navbar";
+import { TransitionProvider } from "./lib/transition-context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,12 +35,12 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <div className="persona-shell">
           <div className="persona-grid">
-            <Nav />
-            <Providers>
+            <TransitionProvider>
+              <Nav />
               <main className="persona-main">
                 {children}
               </main>
-            </Providers>
+            </TransitionProvider>
           </div>
         </div>
       </body>

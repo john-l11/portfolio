@@ -2,9 +2,10 @@
 'use client';
 
 import { motion, AnimatePresence, Variants } from 'framer-motion';
-import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import DimensionalRift from './rift';
+import Triangle from './triangle';
+import WaterBackdrop from './backdrop';
+import { useTransitionNav } from '../lib/transition-context';
 
 const menuItems = [
   { label: 'BACKSTORY', href: '/', desc: 'About me' },
@@ -33,10 +34,16 @@ const itemVariants: Variants = {
 };
 
 export default function MetaphorMenu({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  const { navigateWithTransition } = useTransitionNav();
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   useEffect(() => {
     setHoveredItem(null);
   }, [isOpen]);
+
+  function handleSelect(href: string) {
+    onClose();
+    navigateWithTransition(href);
+  }
 
   return (
     <AnimatePresence>
@@ -51,12 +58,13 @@ export default function MetaphorMenu({ isOpen, onClose }: { isOpen: boolean; onC
         >
           {/* Rough grungy backdrop element */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,var(--tw-gradient-stops))] from-red-900/40 via-black to-black pointer-events-none" />
+          <WaterBackdrop />
 
           <div
             className="relative z-10 pl-16 md:pl-32 flex flex-col space-y-4 w-full max-w-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="text-red-600 text-xs tracking-widest uppercase mb-2 font-mono">-- Command Matrix --</div>
+            <div className="text-blue-600 text-xs tracking-widest uppercase mb-2 font-mono">-- Command Matrix --</div>
 
             {menuItems.map((item, idx) => (
               <motion.div
@@ -66,16 +74,18 @@ export default function MetaphorMenu({ isOpen, onClose }: { isOpen: boolean; onC
                 onHoverEnd={() => setHoveredItem(null)}
                 className="relative overflow-visible"
               >
-                <Link
-                  href={item.href}
-                  onClick={onClose}
+                <div
+                  role="link"
+                  tabIndex={0}
+                  onClick={() => handleSelect(item.href)}
+                  onKeyDown={(e) => e.key === 'Enter' && handleSelect(item.href)}
                   className="group relative flex items-baseline space-x-6 py-2"
                 >
-                  <span className="text-sm font-mono text-neutral-500 group-hover:text-red-500 transition-colors">
+                  <span className="text-sm font-mono text-neutral-500 group-hover:text-white transition-colors">
                     0{idx + 1}
                   </span>
-                  <span className="relative inline-block px-5 py-3">
-                    <DimensionalRift isActive={hoveredItem === item.label} />
+                  <span className="relative inline-block px-10 py-5">
+                    <Triangle isActive={hoveredItem === item.label} />
                     <span className="relative z-10 text-4xl md:text-6xl font-black text-neutral-100 tracking-tighter group-hover:italic group-hover:text-red-500 transition-all duration-200">
                       {item.label}
                     </span>
@@ -83,13 +93,13 @@ export default function MetaphorMenu({ isOpen, onClose }: { isOpen: boolean; onC
                   <span className="relative z-10 hidden md:inline-block text-xs font-mono text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity translate-x-2">
                     // {item.desc}
                   </span>
-                </Link>
+                </div>
               </motion.div>
             ))}
 
             <button
               onClick={onClose}
-              className="mt-8 self-start px-6 py-2 bg-red-600 text-white font-mono text-xs tracking-widest hover:bg-neutral-100 hover:text-black transition-colors"
+              className="mt-8 self-start px-6 py-2 bg-blue-600 text-white font-mono text-xs tracking-widest hover:bg-neutral-100 hover:text-black transition-colors"
             >
               [CLOSE MENU]
             </button>
